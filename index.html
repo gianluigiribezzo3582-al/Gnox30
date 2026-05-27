@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GNOX // OPERAZIONE 30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Overlay scanlines CRT -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Canvas per i confetti (finale) -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- ══════════════════════════════════════════
+       SCHERMATA 1 — INTRO
+  ══════════════════════════════════════════ -->
+  <div id="screen-intro" class="screen active">
+    <div class="center-card">
+      <div class="glitch-wrap">
+        <h1 class="glitch" data-text="GNOX">GNOX</h1>
+      </div>
+      <p class="tagline">// OPERAZIONE 30</p>
+      <p class="intro-flavour">
+        Un viaggio attraverso i mondi che conosci a memoria.<br>
+        Alla fine, capirai cosa ti aspetta.
+      </p>
+      <button id="btn-start" class="btn btn-primary">▶&nbsp;&nbsp;START</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SCHERMATA 2 — LIVELLO (contenuto iniettato da JS)
+  ══════════════════════════════════════════ -->
+  <div id="screen-level" class="screen">
+    <div class="level-hud">
+      <span id="level-label">LIVELLO 1 / 8</span>
+      <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="8">
+        <div id="progress-bar" class="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <!-- Il contenuto di ogni livello viene iniettato qui -->
+    <div id="level-content" class="level-box"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SCHERMATA 3 — FINALE
+  ══════════════════════════════════════════ -->
+  <div id="screen-finale" class="screen">
+    <div class="finale-wrap">
+      <div class="glitch-wrap">
+        <h1 class="glitch finale-title" data-text="AUGURI GNOX!">AUGURI GNOX! 🎮</h1>
+      </div>
+
+      <div class="finale-msg">
+        <p>Hollow Knight, Isaac, i Souls,<br>Kingdom Hearts, Balatro…</p>
+        <p class="highlight">Da oggi ti saranno tutti un po' più <b>vicini</b>.</p>
+        <p>You may now unwrap your gift.</p>
+        <p>Tanti auguri da tutti i tuoi cari amichetti!</p>
+      </div>
+
+      <div class="photo-frame">
+        <img
+          src="foto-gruppo.jpeg"
+          alt="[ inserire foto di gruppo ]"
+          id="group-photo"
+          onerror="this.style.display='none';document.getElementById('photo-fallback').style.display='flex';"
+        />
+        <div id="photo-fallback" class="photo-fallback" style="display:none">
+          📸<br>[ Foto di gruppo ]<br><small>Sostituisci foto-gruppo.jpeg</small>
+        </div>
+      </div>
+      <h6>(+ Gibz e Marina che non hanno trovato la strada per il ritorno in tempo per la foto)</h6>
+      <button id="btn-restart" class="btn btn-secondary">↩&nbsp;&nbsp;RICOMINCIA</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
